@@ -8,9 +8,9 @@ namespace ABE_Lojista.Controllers
     public class OrdersController : ControllerBase
     {
         /// <summary>
-        /// Receive any placed order status changes
+        /// Receive any changes on placed order status
         /// </summary>
-        [HttpPost]
+        [HttpPut]
         public ActionResult<string> NotifyOrderStatus(OrderRequestDTO orderRequest)
         {
 
