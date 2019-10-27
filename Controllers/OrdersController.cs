@@ -11,7 +11,7 @@ namespace ABE_Lojista.Controllers
         /// Receive any placed order status changes
         /// </summary>
         [HttpPost]
-        public ActionResult<string> NotifyOrderStatus(OrderStatusResponseDTO orderStatusResponse)
+        public ActionResult<string> NotifyOrderStatus(OrderRequestDTO orderRequest)
         {
 
             return "value1";
