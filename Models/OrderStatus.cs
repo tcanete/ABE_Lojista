@@ -4,7 +4,6 @@ namespace ABE_Lojista.Models
     {
         Created,
         Rejected,
-        Approved,
         Requested,
         Manufacturing,
         Finalized,
