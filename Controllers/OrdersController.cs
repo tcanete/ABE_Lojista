@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using ABE_Lojista.Models;
+using ABE_Lojista.Orders;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ABE_Lojista.Controllers
@@ -7,24 +10,29 @@ namespace ABE_Lojista.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
+        public static List<OrderResponseDTO> Orders = new List<OrderResponseDTO>();
+
         /// <summary>
         /// Receive any changes on placed order status
         /// </summary>
-        [HttpPut]
+        [HttpPut("Notify")]
         public ActionResult NotifyOrderStatus(OrderResponseDTO orderResponse)
         {
+            var dbOrder = Orders.Where(o => o.Id == orderResponse.Id).FirstOrDefault();
+
+            if (dbOrder != null)
+            {
+                dbOrder.Status = orderResponse.Status;
+            }
 
             return Ok();
         }
 
-        /// <summary>
-        /// Receive any order request with estimated delivery date and pricing. Responds to the acceptance link.
-        /// </summary>
-        [HttpPost]
-        public ActionResult RespondOrderRequest(OrderResponseDTO orderResponsee)
+        [HttpGet]
+        public void Test()
         {
-
-            return Ok();
+            var processor = new OrdersProcessor();
+            processor.RequestProducts();
         }
     }
 }

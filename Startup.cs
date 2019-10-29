@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -61,6 +62,9 @@ namespace ABE_Lojista
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Lojista Api V1");
             });
+
+            //teste
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
         }
     }
 }
