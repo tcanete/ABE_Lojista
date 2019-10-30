@@ -24,6 +24,10 @@ namespace ABE_Lojista.Controllers
             {
                 dbOrder.Status = orderResponse.Status;
             }
+            else
+            {
+                return NotFound();
+            }
 
             return Ok();
         }
