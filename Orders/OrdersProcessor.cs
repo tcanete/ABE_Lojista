@@ -85,7 +85,7 @@ namespace ABE_Lojista.Orders
                     new BaseDTOLink
                     {
                         Rel = "notification",
-                        Href = "https://localhost:60001/api/v1/Orders/Notify"
+                        Href = "http://localhost:60000/api/v1/Orders/Notify"
                     }
                 }
             };
