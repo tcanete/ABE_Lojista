@@ -13,6 +13,6 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app
 COPY --from=build-env /app/out .
-EXPOSE 50000/tcp
+EXPOSE 60000/tcp
 ENV ASPNETCORE_URLS http://*:60000
 ENTRYPOINT ["dotnet", "ABE_Lojista.dll"]
